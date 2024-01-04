@@ -40,4 +40,11 @@ app.get('/now', function(req, res, next) {
   });
 });
 
+app.get('/:word/echo', function(req, res) {
+  let word = req.params.word;
+  res.json({
+    'echo': word,
+  });
+});
+
 module.exports = app;
