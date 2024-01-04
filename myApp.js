@@ -8,6 +8,11 @@ console.log('Hello World');
 //   res.send('Hello Express');
 // });
 
+app.use('/', function(req, res, next) {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
+
 app.get('/', function(req, res) {
   res.sendFile(`${__dirname}/views/index.html`);
 });
