@@ -1,6 +1,7 @@
 require('dotenv').config();
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
 
 // Meet the Node console
 console.log('Hello World');
@@ -14,6 +15,9 @@ app.use('/', function(req, res, next) {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 });
+
+// Use body-parser to Parse POST Requests
+app.use('/', bodyParser.urlencoded({extended: false}));
 
 // Serve an HTML File
 app.get('/', function(req, res) {
