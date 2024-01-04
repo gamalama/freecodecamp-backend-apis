@@ -65,6 +65,14 @@ app.route('/name').get(function(req, res) {
   res.json({
     'name': `${firstname} ${lastname}`,
   });
-});
+})
+    // Get Data from POST Requests
+    .post(function(req, res) {
+      let firstname = req.body.first;
+      let lastname = req.body.last;
+      res.json({
+        'name': `${firstname} ${lastname}`,
+      });
+    });
 
 module.exports = app;
